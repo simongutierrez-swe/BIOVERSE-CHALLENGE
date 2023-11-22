@@ -1,12 +1,11 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const InputTicket = () => {
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [status] = useState("New");
-  const [responseEdit] = useState("None");
+  const status ="New", responseEdit = "None";
 
 
   const onSubmitForm = async e => {
@@ -32,7 +31,7 @@ const InputTicket = () => {
   };
 
   return (
-    <Fragment>
+    <>
       <h1 className="text-center mt-5">Create Support Ticket</h1>
       <form className="mt-5" onSubmit={onSubmitForm}>
         <label>
@@ -67,7 +66,7 @@ const InputTicket = () => {
         <button className="btn btn-success">Add</button>
       </form>
       <Link to="/admin" className="btn btn-primary">Tickets in Queue</Link>
-    </Fragment>
+    </>
   );
 };
 

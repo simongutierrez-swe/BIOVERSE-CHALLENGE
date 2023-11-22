@@ -51,7 +51,7 @@ app.get('/tickets/:id', async (req, res) => {
   }
 });
 
-// update a status
+//update a status
 
 app.put('/status/:id', async (req, res) => {
   try {
@@ -90,7 +90,7 @@ app.put('/response/:id', async (req, res) => {
 app.delete('/tickets/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteTodo = await pool.query('DELETE FROM tickets WHERE ticket_id = $1', [
+    const deleteTicket = await pool.query('DELETE FROM tickets WHERE ticket_id = $1', [
       id
     ]);
     res.json('Ticket was deleted!');

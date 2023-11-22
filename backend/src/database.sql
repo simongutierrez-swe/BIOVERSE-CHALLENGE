@@ -1,4 +1,4 @@
-CREATE DATABASE perntodo;
+CREATE DATABASE bioverse;
 
 CREATE TABLE todo(
   ticket_id SERIAL PRIMARY KEY,

@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import EditStatus from "./EditStatus";
@@ -11,11 +11,11 @@ const ListTickets = () => {
 
   const deleteTicket = async id => {
     try {
-      const deleteTodo = await fetch(`http://localhost:5000/tickets/${id}`, {
+      const deleteTicket = await fetch(`http://localhost:5000/tickets/${id}`, {
         method: "DELETE"
       });
 
-      setTickets(tickets.filter(todo => todo.todo_id !== id));
+      setTickets(tickets.filter(ticket => ticket.ticket_id !== id));
       window.location = "/admin";
     } catch (err) {
       console.error(err.message);
@@ -37,10 +37,8 @@ const ListTickets = () => {
     getTodos();
   }, []);
 
-  console.log(tickets);
-
   return (
-    <Fragment>
+    <>
       {" "}
       <table class="table mt-5 text-center">
         <thead>
@@ -74,7 +72,7 @@ const ListTickets = () => {
         </tbody>
       </table>
       <Link to="/" className="btn btn-primary">Home</Link>
-    </Fragment>
+    </>
   );
 };
 

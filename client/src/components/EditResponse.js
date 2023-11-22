@@ -7,7 +7,7 @@ const EditResponse = ({ ticket }) => {
     e.preventDefault();
     try {
       const body = { response };
-      const Reply = await fetch(
+      const reply = await fetch(
         `http://localhost:5000/response/${ticket.ticket_id}`,
         {
           method: "PUT",
@@ -15,7 +15,7 @@ const EditResponse = ({ ticket }) => {
           body: JSON.stringify(body)
         }
       );
-      console.log(`Would normally send email here with body: ${response}`);
+      console.log(`Would normally send email here with body: ${response} or I would create a seperate button called: send email.`);
       window.location = "/admin";
     } catch (err) {
       console.error(err.message);
