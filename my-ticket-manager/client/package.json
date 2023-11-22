@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "homepage": ".",
+  "homepage": "https://bioverse-challenge-hvi96x0fu-simongutierrez-swes-projects.vercel.app/",
   "version": "0.1.0",
   "private": "true",
   "dependencies": {
