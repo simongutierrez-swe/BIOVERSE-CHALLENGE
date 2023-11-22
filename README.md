@@ -36,7 +36,7 @@ Frontend:
 - Run `npm/yarn build`
 - Run `npm/yarn start`
 
-Deploy Link: https://my-market-manager.web.app/signin
+Deploy Link: TBD
 
 Useful links for begining :
 
