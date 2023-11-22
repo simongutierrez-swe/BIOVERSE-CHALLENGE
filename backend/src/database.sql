@@ -1,7 +1,7 @@
 CREATE DATABASE perntodo;
 
 CREATE TABLE todo(
-  todo_id SERIAL PRIMARY KEY,
+  ticket_id SERIAL PRIMARY KEY,
   name VARCHAR(255),
   email VARCHAR(20) UNIQUE,
   description VARCHAR(255),

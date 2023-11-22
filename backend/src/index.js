@@ -11,41 +11,41 @@ app.use(express.json()); //req.body
 
 //create a ticket
 
-app.post('/todos', async (req, res) => {
+app.post('/tickets', async (req, res) => {
   try {
     const { description, name, status, email, responseEdit } = req.body;
-    const newTodo = await pool.query(
-      'INSERT INTO todo (description, name, status, email, response) VALUES($1, $2, $3, $4, $5) RETURNING *',
+    const newTicket = await pool.query(
+      'INSERT INTO tickets (description, name, status, email, response) VALUES($1, $2, $3, $4, $5) RETURNING *',
       [description, name, status, email, responseEdit]
     );
 
-    res.json(newTodo.rows[0]);
+    res.json(newTicket.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
 });
 
-//get all todos
+//get all tickets
 
-app.get('/todos', async (req, res) => {
+app.get('/tickets', async (req, res) => {
   try {
-    const allTodos = await pool.query('SELECT * FROM todo');
-    res.json(allTodos.rows);
+    const allTickets = await pool.query('SELECT * FROM tickets');
+    res.json(allTickets.rows);
   } catch (err) {
     console.error(err.message);
   }
 });
 
-//get a todo
+//get a ticket
 
-app.get('/todos/:id', async (req, res) => {
+app.get('/tickets/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const todo = await pool.query('SELECT * FROM todo WHERE todo_id = $1', [
+    const ticket = await pool.query('SELECT * FROM todo WHERE ticket_id = $1', [
       id
     ]);
 
-    res.json(todo.rows[0]);
+    res.json(ticket.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
@@ -58,7 +58,7 @@ app.put('/status/:id', async (req, res) => {
     const { id } = req.params;
     const { status } = req.body;
     const updateStatus = await pool.query(
-      'UPDATE todo SET status = $1 WHERE todo_id = $2',
+      'UPDATE tickets SET status = $1 WHERE ticket_id = $2',
       [status, id]
     );
 
@@ -75,25 +75,25 @@ app.put('/response/:id', async (req, res) => {
     const { id } = req.params;
     const { response } = req.body;
     const updateResponse = await pool.query(
-      'UPDATE todo SET response = $1 WHERE todo_id = $2',
+      'UPDATE tickets SET response = $1 WHERE ticket_id = $2',
       [response, id]
     );
 
-    res.json(`Response was updated! ${response}`);
+    res.json(`Response was updated!`);
   } catch (err) {
     console.error(err.message);
   }
 });
 
-//delete a todo
+//delete a ticket
 
-app.delete('/todos/:id', async (req, res) => {
+app.delete('/tickets/:id', async (req, res) => {
   try {
     const { id } = req.params;
-    const deleteTodo = await pool.query('DELETE FROM todo WHERE todo_id = $1', [
+    const deleteTodo = await pool.query('DELETE FROM tickets WHERE ticket_id = $1', [
       id
     ]);
-    res.json('Todo was deleted!');
+    res.json('Ticket was deleted!');
   } catch (err) {
     console.log(err.message);
   }

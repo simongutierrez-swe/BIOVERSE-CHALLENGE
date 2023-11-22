@@ -1,14 +1,14 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 
-const EditResponse = ({ todo }) => {
-  const [response , setResponse] = useState(todo.response);
+const EditResponse = ({ ticket }) => {
+  const [response , setResponse] = useState(ticket.response);
 
   const updateResponse = async e => {
     e.preventDefault();
     try {
       const body = { response };
       const Reply = await fetch(
-        `http://localhost:5000/response/${todo.todo_id}`,
+        `http://localhost:5000/response/${ticket.ticket_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -24,29 +24,29 @@ const EditResponse = ({ todo }) => {
 
    return (
     <td>
-        {todo.response}
+        {ticket.response}
       <button
         type="button"
         class="btn btn-warning"
         data-toggle="modal"
-        data-target={`#id${todo.todo_id}`}
+        data-target={`#id${ticket.ticket_id}`}
       >
         Edit
       </button>
       <div
         class="modal"
-        id={`id${todo.todo_id}`}
-        onClick={() => setResponse(todo.response)}
+        id={`id${ticket.ticket_id}`}
+        onClick={() => setResponse(ticket.response)}
       >
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h4 class="modal-title">Edit Todo</h4>
+              <h4 class="modal-title">Edit Ticket</h4>
               <button
                 type="button"
                 class="close"
                 data-dismiss="modal"
-                onClick={() => setResponse(todo.response)}
+                onClick={() => setResponse(ticket.response)}
               >
                 &times;
               </button>
@@ -74,7 +74,7 @@ const EditResponse = ({ todo }) => {
                 type="button"
                 class="btn btn-danger"
                 data-dismiss="modal"
-                onClick={() => setResponse(todo.response)}
+                onClick={() => setResponse(ticket.response)}
               >
                 Close
               </button>

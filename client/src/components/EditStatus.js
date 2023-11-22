@@ -1,14 +1,14 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 
-const EditStatus = ({ todo }) => {
-  const [status, setStatus] = useState(todo.status);
+const EditStatus = ({ ticket }) => {
+  const [status, setStatus] = useState(ticket.status);
 
   const updateStatus = async e => {
     e.preventDefault();
     try {
       const body = { status };
       const response = await fetch(
-        `http://localhost:5000/status/${todo.todo_id}`,
+        `http://localhost:5000/status/${ticket.ticket_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },

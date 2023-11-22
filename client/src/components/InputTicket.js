@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from "react";
-import { Link, RouteComponentProps } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-const InputTodo = () => {
+const InputTicket = () => {
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -19,7 +19,7 @@ const InputTodo = () => {
         status,
         responseEdit
       };
-      const response = await fetch("http://localhost:5000/todos", {
+      const response = await fetch("http://localhost:5000/tickets", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -71,4 +71,4 @@ const InputTodo = () => {
   );
 };
 
-export default InputTodo;
+export default InputTicket;

@@ -4,16 +4,16 @@ import "./App.css";
 
 //components test
 
-import InputTodo from "./components/InputTodo";
-import ListTodos from "./components/ListTodos";
+import InputTicket from "./components/InputTicket";
+import ListTickets from "./components/ListTickets";
 
 function App() {
   return (
     <BrowserRouter>
         <Routes>
-          <Route index path="/" element={<InputTodo />}>
+          <Route index path="/" element={<InputTicket />}>
           </Route>
-          <Route exact path="/admin" element={<ListTodos />}/>
+          <Route exact path="/admin" element={<ListTickets />}/>
         </Routes>
       </BrowserRouter>
   );

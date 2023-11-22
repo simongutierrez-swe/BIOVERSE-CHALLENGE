@@ -4,18 +4,19 @@ import { Link } from "react-router-dom";
 import EditStatus from "./EditStatus";
 import EditResponse from "./EditResponse";
 
-const ListTodos = () => {
-  const [todos, setTodos] = useState([]);
+const ListTickets = () => {
+  const [tickets, setTickets] = useState([]);
 
-  //delete todo function
+  //delete ticket function
 
-  const deleteTodo = async id => {
+  const deleteTicket = async id => {
     try {
-      const deleteTodo = await fetch(`http://localhost:5000/todos/${id}`, {
+      const deleteTodo = await fetch(`http://localhost:5000/tickets/${id}`, {
         method: "DELETE"
       });
 
-      setTodos(todos.filter(todo => todo.todo_id !== id));
+      setTickets(tickets.filter(todo => todo.todo_id !== id));
+      window.location = "/admin";
     } catch (err) {
       console.error(err.message);
     }
@@ -23,10 +24,10 @@ const ListTodos = () => {
 
   const getTodos = async () => {
     try {
-      const response = await fetch("http://localhost:5000/todos");
+      const response = await fetch("http://localhost:5000/tickets");
       const jsonData = await response.json();
 
-      setTodos(jsonData);
+      setTickets(jsonData);
     } catch (err) {
       console.error(err.message);
     }
@@ -36,7 +37,7 @@ const ListTodos = () => {
     getTodos();
   }, []);
 
-  console.log(todos);
+  console.log(tickets);
 
   return (
     <Fragment>
@@ -53,17 +54,17 @@ const ListTodos = () => {
           </tr>
         </thead>
         <tbody>
-          {todos.map(todo => (
-            <tr key={todo.todo_id}>
-              <td>{todo.name}</td>
-              <td>{todo.email}</td>
-              <td>{todo.description}</td>
-              <EditStatus todo={todo} />
-              <EditResponse todo={todo} />
+          {tickets.map(ticket => (
+            <tr key={ticket.ticket_id}>
+              <td>{ticket.name}</td>
+              <td>{ticket.email}</td>
+              <td>{ticket.description}</td>
+              <EditStatus ticket={ticket} />
+              <EditResponse ticket={ticket} />
               <td>
                 <button
                   className="btn btn-danger"
-                  onClick={() => deleteTodo(todo.todo_id)}
+                  onClick={() => deleteTicket(ticket.ticket_id)}
                 >
                   Delete
                 </button>
@@ -77,4 +78,4 @@ const ListTodos = () => {
   );
 };
 
-export default ListTodos;
+export default ListTickets;
