@@ -1,6 +1,6 @@
 {
   "name": "my-ticket-manager",
-  "homepage": ".",
+  "homepage": "https://bioverse-challenge.vercel.app/",
   "version": "0.1.0",
   "private": "true",
   "dependencies": {
