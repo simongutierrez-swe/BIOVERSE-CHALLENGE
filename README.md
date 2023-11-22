@@ -2,7 +2,7 @@
   <img src="client/public/icon.gif" height=200 width=200>
 </p>
 
-# Bioverse-Challenge
+# My-Ticket-Manager
 
 Have you ever waited forever for a help desk ticket to get addressed? Have you just flat out never gotten a response on your request? Well I have the solution just right for you! Welcome to My-Ticket-Manager a web app that allows users to put in a ticket that visually shows the status as well as a response to said ticket in real time. This app was made using react, express, and postgres.
 
