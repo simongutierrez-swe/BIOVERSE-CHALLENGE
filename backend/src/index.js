@@ -13,10 +13,10 @@ app.use(express.json()); //req.body
 
 app.post('/todos', async (req, res) => {
   try {
-    const { description } = req.body;
+    const { description, name, status, response, email } = req.body;
     const newTodo = await pool.query(
-      'INSERT INTO todo (description) VALUES($1) RETURNING *',
-      [description]
+      'INSERT INTO todo (description, name, status, response, email) VALUES($1, $2, $3, $4, $5) RETURNING *',
+      [description, name, status, response, email]
     );
 
     res.json(newTodo.rows[0]);
