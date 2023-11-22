@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="client/public/icon.gif" height=200 width=200>
+   <img src="my-ticket-manager/client/public/icon.gif" height=200 width=200> 
 </p>
 
 # My-Ticket-Manager
@@ -10,13 +10,13 @@ Have you ever waited forever for a help desk ticket to get addressed? Have you j
 
 |     Create a Ticket                   
 | ------------------------- |
-| ![Output sample](client/public/Create-Ticket.gif)| 
+| ![Output sample](my-ticket-manager/client/public/create-ticket.gif)| 
 
 Create a ticket by entering your name, email and a description.
 
 |     Admin                   
 | ------------------------- |
-| ![Output sample](client/public/admin.gif)| 
+| ![Output sample](my-ticket-manager/client/public/admin.gif)| 
 
 Admin will have the ability to access to your ticket, update the status of the ticket, respond and delete.
 
