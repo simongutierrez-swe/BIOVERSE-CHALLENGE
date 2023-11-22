@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { Link, RouteComponentProps } from "react-router-dom";
 
 import EditTodo from "./EditTodo";
 
@@ -42,21 +43,26 @@ const ListTodos = () => {
       <table class="table mt-5 text-center">
         <thead>
           <tr>
+            <th>Name</th>
+            <th>Email</th>
             <th>Description</th>
-            <th>Edit</th>
+            <th>Status</th>
+            <th>Response</th> 
             <th>Delete</th>
           </tr>
         </thead>
         <tbody>
-          {/*<tr>
-            <td>John</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-          </tr> */}
           {todos.map(todo => (
             <tr key={todo.todo_id}>
+              <td>{todo.name}</td>
+              <td>{todo.email}</td>
               <td>{todo.description}</td>
               <td>
+                {todo.status} 
+                <EditTodo todo={todo} />
+              </td>
+              <td>
+                {todo.response} 
                 <EditTodo todo={todo} />
               </td>
               <td>
@@ -71,6 +77,7 @@ const ListTodos = () => {
           ))}
         </tbody>
       </table>
+      <Link to="/" className="btn btn-primary">Home</Link>
     </Fragment>
   );
 };

@@ -1,12 +1,21 @@
 import React, { Fragment, useState } from "react";
+import { Link, RouteComponentProps } from "react-router-dom";
 
 const InputTodo = () => {
   const [description, setDescription] = useState("");
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [status] = useState("Open");
 
   const onSubmitForm = async e => {
     e.preventDefault();
     try {
-      const body = { description };
+      const body = { 
+        description,
+        name,
+        email,
+        status
+      };
       const response = await fetch("http://localhost:5000/todos", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -21,16 +30,40 @@ const InputTodo = () => {
 
   return (
     <Fragment>
-      <h1 className="text-center mt-5">Pern Todo List</h1>
-      <form className="d-flex mt-5" onSubmit={onSubmitForm}>
-        <input
+      <h1 className="text-center mt-5">Create Support Ticket</h1>
+      <form className="mt-5" onSubmit={onSubmitForm}>
+        <label>
+          Name:
+          <input
           type="text"
           className="form-control"
-          value={description}
-          onChange={e => setDescription(e.target.value)}
+          value={name}
+          onChange={e => setName(e.target.value)}
         />
+        </label>
+        <br />
+        <label>
+          Email:
+          <input
+          type="text"
+          className="form-control"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+        />
+        </label>
+        <br />
+        <label>
+          Description:
+          <input
+            type="text"
+            className="form-control"
+            value={description}
+            onChange={e => setDescription(e.target.value)}
+          />
+        </label>
         <button className="btn btn-success">Add</button>
       </form>
+      <Link to="/admin" className="btn btn-primary">Tickets in Queue</Link>
     </Fragment>
   );
 };

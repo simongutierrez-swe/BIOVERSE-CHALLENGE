@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import "./App.css";
 
 //components test
@@ -8,12 +9,13 @@ import ListTodos from "./components/ListTodos";
 
 function App() {
   return (
-    <Fragment>
-      <div className="container">
-        <InputTodo />
-        <ListTodos />
-      </div>
-    </Fragment>
+    <BrowserRouter>
+        <Routes>
+          <Route index path="/" element={<InputTodo />}>
+          </Route>
+          <Route exact path="/admin" element={<ListTodos />}/>
+        </Routes>
+      </BrowserRouter>
   );
 }
 
