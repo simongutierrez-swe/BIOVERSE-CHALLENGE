@@ -1,7 +1,8 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Link, RouteComponentProps } from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import EditTodo from "./EditTodo";
+import EditStatus from "./EditStatus";
+import EditResponse from "./EditResponse";
 
 const ListTodos = () => {
   const [todos, setTodos] = useState([]);
@@ -57,14 +58,8 @@ const ListTodos = () => {
               <td>{todo.name}</td>
               <td>{todo.email}</td>
               <td>{todo.description}</td>
-              <td>
-                {todo.status} 
-                <EditTodo todo={todo} />
-              </td>
-              <td>
-                {todo.response} 
-                <EditTodo todo={todo} />
-              </td>
+              <EditStatus todo={todo} />
+              <EditResponse todo={todo} />
               <td>
                 <button
                   className="btn btn-danger"

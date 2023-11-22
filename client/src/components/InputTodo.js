@@ -5,7 +5,9 @@ const InputTodo = () => {
   const [description, setDescription] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-  const [status] = useState("Open");
+  const [status] = useState("New");
+  const [responseEdit] = useState("None");
+
 
   const onSubmitForm = async e => {
     e.preventDefault();
@@ -14,7 +16,8 @@ const InputTodo = () => {
         description,
         name,
         email,
-        status
+        status,
+        responseEdit
       };
       const response = await fetch("http://localhost:5000/todos", {
         method: "POST",

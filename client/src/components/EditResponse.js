@@ -1,31 +1,30 @@
 import React, { Fragment, useState } from "react";
 
-const EditTodo = ({ todo }) => {
-  const [description, setDescription] = useState(todo.description);
+const EditResponse = ({ todo }) => {
+  const [response , setResponse] = useState(todo.response);
 
-  //edit description function
-
-  const updateDescription = async e => {
+  const updateResponse = async e => {
     e.preventDefault();
     try {
-      const body = { description };
-      const response = await fetch(
-        `http://localhost:5000/todos/${todo.todo_id}`,
+      const body = { response };
+      const Reply = await fetch(
+        `http://localhost:5000/response/${todo.todo_id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(body)
         }
       );
-
-      window.location = "/";
+      console.log(`Would normally send email here with body: ${response}`);
+      window.location = "/admin";
     } catch (err) {
       console.error(err.message);
     }
   };
 
-  return (
-    <Fragment>
+   return (
+    <td>
+        {todo.response}
       <button
         type="button"
         class="btn btn-warning"
@@ -34,14 +33,10 @@ const EditTodo = ({ todo }) => {
       >
         Edit
       </button>
-
-      {/* 
-        id = id10
-      */}
       <div
         class="modal"
         id={`id${todo.todo_id}`}
-        onClick={() => setDescription(todo.description)}
+        onClick={() => setResponse(todo.response)}
       >
         <div class="modal-dialog">
           <div class="modal-content">
@@ -51,7 +46,7 @@ const EditTodo = ({ todo }) => {
                 type="button"
                 class="close"
                 data-dismiss="modal"
-                onClick={() => setDescription(todo.description)}
+                onClick={() => setResponse(todo.response)}
               >
                 &times;
               </button>
@@ -61,8 +56,8 @@ const EditTodo = ({ todo }) => {
               <input
                 type="text"
                 className="form-control"
-                value={description}
-                onChange={e => setDescription(e.target.value)}
+                value={response}
+                onChange={e => setResponse(e.target.value)}
               />
             </div>
 
@@ -71,7 +66,7 @@ const EditTodo = ({ todo }) => {
                 type="button"
                 class="btn btn-warning"
                 data-dismiss="modal"
-                onClick={e => updateDescription(e)}
+                onClick={e => updateResponse(e)}
               >
                 Edit
               </button>
@@ -79,7 +74,7 @@ const EditTodo = ({ todo }) => {
                 type="button"
                 class="btn btn-danger"
                 data-dismiss="modal"
-                onClick={() => setDescription(todo.description)}
+                onClick={() => setResponse(todo.response)}
               >
                 Close
               </button>
@@ -87,8 +82,8 @@ const EditTodo = ({ todo }) => {
           </div>
         </div>
       </div>
-    </Fragment>
+    </td>
   );
 };
 
-export default EditTodo;
+export default EditResponse;

@@ -9,14 +9,14 @@ app.use(express.json()); //req.body
 
 //ROUTES//
 
-//create a todo
+//create a ticket
 
 app.post('/todos', async (req, res) => {
   try {
-    const { description, name, status, email } = req.body;
+    const { description, name, status, email, responseEdit } = req.body;
     const newTodo = await pool.query(
-      'INSERT INTO todo (description, name, status, email) VALUES($1, $2, $3, $4) RETURNING *',
-      [description, name, status, email]
+      'INSERT INTO todo (description, name, status, email, response) VALUES($1, $2, $3, $4, $5) RETURNING *',
+      [description, name, status, email, responseEdit]
     );
 
     res.json(newTodo.rows[0]);
@@ -51,18 +51,18 @@ app.get('/todos/:id', async (req, res) => {
   }
 });
 
-//update a status
+// update a status
 
-app.put('/todos/:id', async (req, res) => {
+app.put('/status/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const { status } = req.body;
-    const updateTodo = await pool.query(
+    const updateStatus = await pool.query(
       'UPDATE todo SET status = $1 WHERE todo_id = $2',
       [status, id]
     );
 
-    res.json('Todo was updated!');
+    res.json('Status was updated!');
   } catch (err) {
     console.error(err.message);
   }
@@ -70,20 +70,20 @@ app.put('/todos/:id', async (req, res) => {
 
 //update a response
 
-// app.put('/todos/:id', async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const { description } = req.body;
-//     const updateTodo = await pool.query(
-//       'UPDATE todo SET description = $1 WHERE todo_id = $2',
-//       [description, id]
-//     );
+app.put('/response/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { response } = req.body;
+    const updateResponse = await pool.query(
+      'UPDATE todo SET response = $1 WHERE todo_id = $2',
+      [response, id]
+    );
 
-//     res.json('Todo was updated!');
-//   } catch (err) {
-//     console.error(err.message);
-//   }
-// });
+    res.json(`Response was updated! ${response}`);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
 
 //delete a todo
 
