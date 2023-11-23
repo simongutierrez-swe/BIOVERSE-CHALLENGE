@@ -1,5 +1,5 @@
 <p align="center">
-   <img src="my-ticket-manager/client/public/icon.gif" height=200 width=200> 
+   <img src="public/icon.gif" height=200 width=200> 
 </p>
 
 # My-Ticket-Manager
@@ -10,13 +10,13 @@ Have you ever waited forever for a help desk ticket to get addressed? Have you j
 
 |     Create a Ticket                   
 | ------------------------- |
-| ![Output sample](my-ticket-manager/client/public/create-ticket.gif)| 
+| ![Output sample](public/create-ticket.gif)| 
 
 Create a ticket by entering your name, email and a description.
 
 |     Admin                   
 | ------------------------- |
-| ![Output sample](my-ticket-manager/client/public/admin.gif)| 
+| ![Output sample](public/admin.gif)| 
 
 Admin will have the ability to access to your ticket, update the status of the ticket, respond and delete.
 
@@ -36,10 +36,14 @@ Frontend:
 - Run `npm/yarn build`
 - Run `npm/yarn start`
 
-Deploy Link: TBD
+Deploy Link: https://powerful-earth-06983-a47bfee1a393.herokuapp.com/
 
 Useful links for begining :
 
 - https://www.youtube.com/watch?v=ldYcgPKEZC8
 - https://github.com/ousecTic/pern-todo-app
 - https://www.youtube.com/watch?v=6LnE7b8DcWM&
+
+BUGS:
+
+- I still need to add a remote server to allow users to have access to routes and data in DB
