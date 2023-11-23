@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.1.2",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-router-dom": "^6.19.0",
     "react-scripts": "^5.0.1",
     "cors": "^2.8.5",
     "express": "^4.18.1",
@@ -37,9 +38,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "react-router-dom": "^6.19.0"
   },
   "author": "",
   "license": "ISC"
