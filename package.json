@@ -18,8 +18,8 @@
     "pg": "^8.7.3"
   },
   "scripts": {
-    "start": "react-scripts start & nodemon backend/routes.js",
-    "start-server": "nodemon backend/routes.js",
+    "start": "react-scripts start & node backend/routes.js",
+    "start-server": "node backend/routes.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
