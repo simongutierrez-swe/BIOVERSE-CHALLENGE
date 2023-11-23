@@ -4,13 +4,13 @@
 
 # My-Ticket-Manager
 
-Have you ever waited forever for a help desk ticket to get addressed? Have you just flat out never gotten a response on your request? Well I have the solution just right for you! Welcome to My-Ticket-Manager a web app that allows users to put in a ticket that visually shows the status as well as a response to said ticket in real time. This app was made using react, express, and postgres.
+Have you ever waited forever for a help desk ticket to get addressed? Have you just flat out never gotten a response on your request? Well I have the solution just right for you! Welcome to My-Ticket-Manager, a web app that allows users to put in a ticket that visually shows the status as well as a response to said ticket in real time. This app was made using react, express, and postgres.
 
 ## How It Works
 
 |     Create a Ticket                   
 | ------------------------- |
-| ![Output sample](public/create-ticket.gif)| 
+| ![Output sample](public/create.gif)| 
 
 Create a ticket by entering your name, email and a description.
 
