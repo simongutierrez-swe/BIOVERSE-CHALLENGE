@@ -28,7 +28,7 @@ Backend:
 - in shell : CREATE DATABASE bioverse;   \c bioverse;
 - dont forget to change file `db.js` with your server credentials
 - make database sql accourding to your need then copy and paste it in shell
-- CD into folder Backend and run `npm install`
+- CD into folder Backend and run `npm install` then `npm start-server`
 - you should get a response stating 'server has started on port 5000'
 
 Frontend:
